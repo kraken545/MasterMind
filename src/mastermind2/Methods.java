@@ -12,7 +12,7 @@ public class Methods
 	public void show_dificulty()/** shows the all the difficulty's options **/
 	{
 		System.out.println("Choose Dificulty: (1, 2 or 3)");
-		System.out.println("1. easy (8 pogginen)");
+		System.out.println("1. Easy (8 pogginen)");
 		System.out.println("2. Medium (5 pogginen)");
 		System.out.println("3. Difícult (3 pogginen)");
 	}
