@@ -81,7 +81,7 @@ public class Methods {
         for (int i = 0; i < playerGuesses.length; i++) {
             if (playerGuesses[i].equals(correctColors[i].toString().toLowerCase())) {
                 System.out.println("Vak_" + (i + 1) + " is goed!");
-                responses[i] = "Correct"; // Almacena la respuesta
+                responses[i] = "is goed!"; // Almacena la respuesta
             } else {
                 isWin = false;
                 boolean found = false;
