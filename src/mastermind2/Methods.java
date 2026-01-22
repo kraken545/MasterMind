@@ -11,8 +11,10 @@ public class Methods
 {
 	public void show_dificulty()/** shows the all the difficulty's options **/
 	{
-		System.out.println("Choose Dificulty: (1, 2 or 3)");
-		System.out.println("1. easy (8 pogginen)");
+		System.out.println("=========================================\n"
+				+ "|||   Choose Dificulty: (1, 2 or 3)   |||\n"
+				+ "=========================================");
+		System.out.println("1. Easy (8 pogginen)");
 		System.out.println("2. Medium (5 pogginen)");
 		System.out.println("3. Difícult (3 pogginen)");
 	}
@@ -43,10 +45,21 @@ public class Methods
 		System.out.println("");
 
 	}
+	
+	public String Vak(String i) /** class to generate a blank line (space) **/
+	{
+		System.out.println("Vak_" + (.toString(i) + 1));
+
+	}
 
 	public void mogelijke_kleuren()/** Shows all the possible colors to choose **/
 	{
-		System.out.println("Mogelijke kleuren: GREEN, PINK, BLUE, RED, PURPLE, ORANGE");
+		System.out.println("============================================================================================\n"
+				+ "============================================================================================\n"
+				+ "||||||||     Mogelijke kleuren: GREEN, PINK, BLUE, RED, PURPLE, ORANGE         |||||||||||||"
+				+ "\n"
+				+ "============================================================================================\n"
+				+ "============================================================================================");
 
 	}
 

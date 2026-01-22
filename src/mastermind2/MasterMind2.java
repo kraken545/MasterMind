@@ -47,10 +47,6 @@ public class MasterMind2
 			correctColors[i] = methods.colorChoose(randomIndex);
 		}
 
-		methods.spatie();
-		methods.mogelijke_kleuren();
-		methods.spatie();
-
 		attempts = 0;
 		while (attempts < trys)
 		{
@@ -58,6 +54,9 @@ public class MasterMind2
 
 			for (int i = 0; i < 4; i++)
 			{
+				methods.spatie();
+				methods.mogelijke_kleuren();
+				methods.spatie();
 				methods.spatie();
 				System.out.println("Vak_" + (i + 1));
 				playerGuesses[i] = input.next();
