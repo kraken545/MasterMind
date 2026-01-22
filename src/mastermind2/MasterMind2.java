@@ -6,8 +6,6 @@ import java.util.Scanner;
 public class MasterMind2
 {
 
-	private static String response;
-
 	public static void main(String[] args) /**
 											 * @author Elian main class
 											 **/
