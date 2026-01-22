@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2eb200e6-5c77-4982-b368-cde4004520df" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/MasterMindNew/mastermind2/Colors.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MasterMindNew/mastermind2/Colors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MasterMindNew/mastermind2/MasterMind2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MasterMindNew/mastermind2/MasterMind2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MasterMindNew/mastermind2/Methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MasterMindNew/mastermind2/Methods.class" afterDir="false" />
-    </list>
+    <list default="true" id="2eb200e6-5c77-4982-b368-cde4004520df" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
