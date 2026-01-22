@@ -1,5 +1,6 @@
 package mastermind2;
 
+
 import java.util.Random;
 
 enum Colors
@@ -9,19 +10,20 @@ enum Colors
 
 public class Methods
 {
+	
+
 	public void show_dificulty()/** shows the all the difficulty's options **/
 	{
-		System.out.println("=========================================\n"
-				+ "|||   Choose Dificulty: (1, 2 or 3)   |||\n"
-				+ "=========================================");
+		System.out.println("=========================================\n" + "|||   Choose Dificulty: (1, 2 or 3)   |||\n" + "=========================================");
 		System.out.println("1. Easy (8 pogginen)");
 		System.out.println("2. Medium (5 pogginen)");
 		System.out.println("3. Difícult (3 pogginen)");
 	}
+
 	public int dificulty(int dificultad)/** Process of choose the game difficulty **/
 	{
 		int maxIntentos;
-	
+
 		switch (dificultad)
 		{
 		case 1:
@@ -45,23 +47,18 @@ public class Methods
 		System.out.println("");
 
 	}
-	
+
 	public void Vak(int i) /** class to generate a blank line (space) **/
 	{
 		i = i + 1;
-		System.out.println("===========\n"
-				+ "|| Vak_" + i+" ||\n"
-				+"===========");
+		System.out.println("===========\n" + "|| Vak_" + i + " ||\n" + "===========");
 
 	}
 
 	public void mogelijke_kleuren()/** Shows all the possible colors to choose **/
 	{
-		System.out.println("============================================================================================\n"
-				+ "============================================================================================\n"
-				+ "||||||||     Mogelijke kleuren: GREEN, PINK, BLUE, RED, PURPLE, ORANGE         |||||||||||||"
-				+ "\n"
-				+ "============================================================================================\n"
+		System.out.println("============================================================================================\n" + "============================================================================================\n"
+				+ "||||||||     Mogelijke kleuren: GREEN, PINK, BLUE, RED, PURPLE, ORANGE         |||||||||||||" + "\n" + "============================================================================================\n"
 				+ "============================================================================================");
 
 	}
@@ -71,13 +68,15 @@ public class Methods
 		return Colors.values()[index];
 	}
 
-	public int color_random()/** process of choosing a color for the game itself (hidden colors) using Random **/
+	public int color_random()/**
+								 * process of choosing a color for the game itself (hidden colors) using Random
+								 **/
 	{
 		Random random = new Random();
 		return random.nextInt(Colors.values().length);
 	}
 
-	public void decoder(String[] playerGuesses, Colors[] correctColors) /** Decoder compare the player- and the hiddenColors to have a result  **/
+	public void decoder(String[] playerGuesses, Colors[] correctColors) /** Decoder compare the player- and the hiddenColors to have a result **/
 	{
 		boolean isWin = true;
 		boolean[] checked = new boolean[correctColors.length];
@@ -110,6 +109,9 @@ public class Methods
 				}
 			}
 		}
-
 	}
+
+	
+
+	
 }
