@@ -1,112 +1,140 @@
 package mastermind2;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-enum Colors
-{
-	GREEN, PINK, BLUE, RED, PURPLE, ORANGE
+
+enum Colors {
+    GREEN, PINK, BLUE, RED, PURPLE, ORANGE
 }
 
-public class Methods
-{
+public class Methods {
+    private List<ColorEntry> history;
 
-	public void show_dificulty()/** shows the all the difficulty's options **/
-	{
-		System.out.println("=========================================\n" + "|||   Choose Dificulty: (1, 2 or 3)   |||\n" + "=========================================");
-		System.out.println("1. Easy (8 pogginen)");
-		System.out.println("2. Medium (5 pogginen)");
-		System.out.println("3. Difícult (3 pogginen)");
-	}
+    public Methods() {
+        this.history = new ArrayList<>();
+    }
 
-	public int dificulty(int dificultad)/** Process of choose the game difficulty **/
-	{
-		int maxIntentos;
+    public void show_dificulty() {
+        System.out.println("=========================================\n"
+                + "|||   Choose Dificulty: (1, 2 or 3)   |||\n"
+                + "=========================================");
+        System.out.println("1. Easy (8 pogginen)");
+        System.out.println("2. Medium (5 pogginen)");
+        System.out.println("3. Difícult (3 pogginen)");
+    }
 
-		switch (dificultad)
-		{
-		case 1:
-			maxIntentos = 8;
-			break;
-		case 2:
-			maxIntentos = 5;
-			break;
-		case 3:
-			maxIntentos = 3;
-			break;
-		default:
-			System.out.println("dat is niet mogelijk, Easy mode automatisch gekozen");
-			maxIntentos = 8;
-		}
-		return maxIntentos;
-	}
+    public int dificulty(int dificultad) {
+        int maxIntentos;
 
-	public void spatie() /** class to generate a blank line (space) **/
-	{
-		System.out.println("");
+        switch (dificultad) {
+            case 1:
+                maxIntentos = 8;
+                break;
+            case 2:
+                maxIntentos = 5;
+                break;
+            case 3:
+                maxIntentos = 3;
+                break;
+            default:
+                System.out.println("dat is niet mogelijk, Easy mode automatisch gekozen");
+                maxIntentos = 8;
+        }
+        return maxIntentos;
+    }
 
-	}
+    public void spatie() {
+        System.out.println("");
+    }
 
-	public void Vak(int i) /** class to generate a blank line (space) **/
-	{
-		i = i + 1;
-		System.out.println("===========\n" + "|| Vak_" + i + " ||\n" + "===========");
+    public void Vak(int i) {
+        i = i + 1;
+        System.out.println("===========\n"
+                + "|| Vak_" + i + " ||\n"
+                + "===========");
+    }
 
-	}
+    public void mogelijke_kleuren() {
+        System.out.println("============================================================================================\n"
+                + "============================================================================================\n"
+                + "||||||||     Mogelijke kleuren: GREEN, PINK, BLUE, RED, PURPLE, ORANGE         |||||||||||||"
+                + "\n"
+                + "============================================================================================\n"
+                + "============================================================================================");
+    }
 
-	public void mogelijke_kleuren()/** Shows all the possible colors to choose **/
-	{
-		System.out.println("============================================================================================\n" + "============================================================================================\n"
-				+ "||||||||     Mogelijke kleuren: GREEN, PINK, BLUE, RED, PURPLE, ORANGE         |||||||||||||" + "\n" + "============================================================================================\n"
-				+ "============================================================================================");
+    public Colors colorChoose(int index) {
+        return Colors.values()[index];
+    }
 
-	}
+    public int color_random() {
+        Random random = new Random();
+        return random.nextInt(Colors.values().length);
+    }
 
-	public Colors colorChoose(int index)/** process of choosing a color (user) **/
-	{
-		return Colors.values()[index];
-	}
+    public void decoder(String[] playerGuesses, Colors[] correctColors) {
+        boolean isWin = true;
+        boolean[] checked = new boolean[correctColors.length];
+        String[] responses = new String[playerGuesses.length]; // Array para almacenar respuestas
 
-	public int color_random()/**
-								 * process of choosing a color for the game itself (hidden colors) using Random
-								 **/
-	{
-		Random random = new Random();
-		return random.nextInt(Colors.values().length);
-	}
+        for (int i = 0; i < playerGuesses.length; i++) {
+            if (playerGuesses[i].equals(correctColors[i].toString().toLowerCase())) {
+                System.out.println("Vak_" + (i + 1) + " is goed!");
+                responses[i] = "Correct"; // Almacena la respuesta
+            } else {
+                isWin = false;
+                boolean found = false;
 
-	public void decoder(String[] playerGuesses, Colors[] correctColors) /** Decoder compare the player- and the hiddenColors to have a result **/
-	{
-		boolean isWin = true;
-		boolean[] checked = new boolean[correctColors.length];
+                for (int j = 0; j < correctColors.length; j++) {
+                    if (playerGuesses[i].equals(correctColors[j].toString().toLowerCase()) && !checked[j]) {
+                        found = true;
+                        checked[j] = true;
+                    }
+                }
 
-		for (int i = 0; i < playerGuesses.length; i++)
-		{
-			if (playerGuesses[i].equals(correctColors[i].toString().toLowerCase()))
-			{
-				System.out.println("Vak_" + (i + 1) + " is goed!");
-			} else
-			{
-				isWin = false;
-				boolean found = false;
+                if (found) {
+                    System.out.println("Vak_" + (i + 1) + " niet goed, maar kleur komt wel in de doosje.");
+                    responses[i] = "Incorrect, maar kleur komt voor"; // Almacena la respuesta
+                } else {
+                    System.out.println("Vak_" + (i + 1) + " is niet goed!");
+                    responses[i] = "Incorrect"; // Almacena la respuesta
+                }
+            }
+        }
 
-				for (int j = 0; j < correctColors.length; j++)
-				{
-					if (playerGuesses[i].equals(correctColors[j].toString().toLowerCase()) && !checked[j])
-					{
-						found = true;
-						checked[j] = true;
-					}
-				}
+        // Agregar al historial
+        for (int i = 0; i < responses.length; i++) {
+            if (playerGuesses[i] != null) {
+                addColorEntry(playerGuesses[i], responses[i]); // Asegúrate de que esta función esté disponible
+            }
+        }
+    }
 
-				if (found)
-				{
-					System.out.println("Vak_" + (i + 1) + " niet goed, maar kleur komt wel in de doosje.");
-				} else
-				{
-					System.out.println("Vak_" + (i + 1) + " is niet goed!");
-				}
-			}
-		}
-	}
+    // Método para agregar una entrada al historial
+    public void addColorEntry(String color, String response) {
+        history.add(new ColorEntry(color, response));
+    }
 
+    // Método para mostrar el historial de colores
+    public void displayHistory() {
+        System.out.println("Historial de colores escogidos:");
+        System.out.println("==================================");
+        for (ColorEntry entry : history) {
+            System.out.println("Color: " + entry.color + " | Respuesta: " + entry.response);
+        }
+        System.out.println("==================================");
+    }
+
+    private class ColorEntry {
+        String color;
+        String response;
+
+        ColorEntry(String color, String response) {
+            this.color = color;
+            this.response = response;
+        }
+    }
 }
+
