@@ -34,7 +34,7 @@ public class Methods
 			maxIntentos = 3;
 			break;
 		default:
-			System.out.println("dat is niet mogelijk, easy mode automatisch gekozen");
+			System.out.println("dat is niet mogelijk, Easy mode automatisch gekozen");
 			maxIntentos = 8;
 		}
 		return maxIntentos;
@@ -46,9 +46,12 @@ public class Methods
 
 	}
 	
-	public String Vak(String i) /** class to generate a blank line (space) **/
+	public void Vak(int i) /** class to generate a blank line (space) **/
 	{
-		System.out.println("Vak_" + (.toString(i) + 1));
+		i = i + 1;
+		System.out.println("===========\n"
+				+ "|| Vak_" + i+" ||\n"
+				+"===========");
 
 	}
 

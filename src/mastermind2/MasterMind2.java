@@ -51,14 +51,12 @@ public class MasterMind2
 		while (attempts < trys)
 		{
 			playerGuesses = new String[4];
-
+			methods.mogelijke_kleuren();
 			for (int i = 0; i < 4; i++)
 			{
+				
 				methods.spatie();
-				methods.mogelijke_kleuren();
-				methods.spatie();
-				methods.spatie();
-				System.out.println("Vak_" + (i + 1));
+				methods.Vak(i);
 				playerGuesses[i] = input.next();
 			}
 
