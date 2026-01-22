@@ -1,6 +1,5 @@
 package mastermind2;
 
-
 import java.util.Random;
 
 enum Colors
@@ -10,7 +9,6 @@ enum Colors
 
 public class Methods
 {
-	
 
 	public void show_dificulty()/** shows the all the difficulty's options **/
 	{
@@ -111,7 +109,4 @@ public class Methods
 		}
 	}
 
-	
-
-	
 }
