@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
 enum Colors {
     GREEN, PINK, BLUE, RED, PURPLE, ORANGE
 }
-
+ 
 public class Methods {
     private List<ColorEntry> history;
 
@@ -96,10 +95,10 @@ public class Methods {
 
                 if (found) {
                     System.out.println("Vak_" + (i + 1) + " niet goed, maar kleur komt wel in de doosje.");
-                    responses[i] = "Incorrect, maar kleur komt voor"; // Almacena la respuesta
+                    responses[i] = "niet goed, maar kleur komt wel in de doosje."; // Almacena la respuesta
                 } else {
                     System.out.println("Vak_" + (i + 1) + " is niet goed!");
-                    responses[i] = "Incorrect"; // Almacena la respuesta
+                    responses[i] = "is niet goed!"; // Almacena la respuesta
                 }
             }
         }
@@ -119,7 +118,7 @@ public class Methods {
 
     // Método para mostrar el historial de colores
     public void displayHistory() {
-        System.out.println("Historial de colores escogidos:");
+        System.out.println("kleur geschiedenis");
         System.out.println("==================================");
         for (ColorEntry entry : history) {
             System.out.println("Color: " + entry.color + " | Respuesta: " + entry.response);
